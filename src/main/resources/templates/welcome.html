@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BCrypt Generator</title>
+</head>
+<body>
+
+    <form action="/" method="get" >
+        <label>String</label> <br>
+        <input type="text" name="encryptString"> <br><br>
+        <input type="submit" value="Encrypt">
+    </form>
+
+    <label style="color: blue">Encrypted String</label>
+    <span th:text="${encryptedString}"/>
+
+    <br><br>
+
+    <form action="#" method="post" th:action="@{/}" th:object="${bCryptObject}">
+        <label style="color: blue">Enter Encrypted String</label>
+        <input type="text" th:field="*{encryptedString}" placeholder="Encrypted String">
+        <br>
+        <label style="color: blue">Enter String</label>
+        <input type="text" th:field="*{data}" placeholder="Data">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div th:switch="${match}">
+        <p th:case="yes" style="color: green">Matched !!!</p>
+        <p th:case="no" style="color: red">Not Matched !!!</p>
+    </div>
+
+</body>
+</html>
