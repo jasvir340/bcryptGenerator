@@ -33,6 +33,14 @@ public class BCryptObject {
     }
 
     public boolean isEqual(PasswordEncoder passwordEncoder){
+        if (data == null || data.isEmpty()) {
+            return false;
+        }
+
+        if (encryptedString == null || encryptedString.isEmpty()) {
+            return false;
+        }
+
         return passwordEncoder.matches(data, encryptedString);
     }
 
